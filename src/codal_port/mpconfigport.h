@@ -64,6 +64,7 @@
 #define MICROPY_QSTR_EXTRA_POOL                 mp_qstr_frozen_const_pool
 #define MICROPY_USE_INTERNAL_ERRNO              (1)
 #define MICROPY_ENABLE_SCHEDULER                (1)
+#define MICROPY_ENABLE_EMERGENCY_EXCEPTION_BUF  (1)
 
 // Fine control over Python builtins, classes, modules, etc
 #define MICROPY_PY_BUILTINS_MEMORYVIEW          (1)
@@ -94,7 +95,7 @@
 #define MICROPY_PORT_BUILTINS \
     { MP_ROM_QSTR(MP_QSTR_open), MP_ROM_PTR(&mp_builtin_open_obj) },
 
-#define MICROBIT_RELEASE "2.0.0-beta.5"
+#define MICROBIT_RELEASE "2.1.0-alpha.1"
 #define MICROBIT_BOARD_NAME "micro:bit"
 #define MICROPY_HW_BOARD_NAME MICROBIT_BOARD_NAME " v" MICROBIT_RELEASE
 #define MICROPY_HW_MCU_NAME "nRF52833"
@@ -112,6 +113,7 @@ extern const struct _mp_obj_module_t radio_module;
 extern const struct _mp_obj_module_t speech_module;
 extern const struct _mp_obj_module_t this_module;
 extern const struct _mp_obj_module_t utime_module;
+extern const struct _mp_obj_module_t timer_module;
 
 #define MICROPY_PORT_BUILTIN_MODULES \
     { MP_ROM_QSTR(MP_QSTR_antigravity), MP_ROM_PTR(&antigravity_module) }, \
@@ -125,6 +127,7 @@ extern const struct _mp_obj_module_t utime_module;
     { MP_ROM_QSTR(MP_QSTR_speech), MP_ROM_PTR(&speech_module) }, \
     { MP_ROM_QSTR(MP_QSTR_this), MP_ROM_PTR(&this_module) }, \
     { MP_ROM_QSTR(MP_QSTR_utime), MP_ROM_PTR(&utime_module) }, \
+    { MP_ROM_QSTR(MP_QSTR_timer), MP_ROM_PTR(&timer_module) }, \
 
 #define MICROPY_PORT_ROOT_POINTERS \
     const char *readline_hist[8]; \

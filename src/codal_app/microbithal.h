@@ -149,6 +149,9 @@ void microbit_hal_audio_speech_init(uint32_t sample_rate);
 void microbit_hal_audio_speech_write_data(const uint8_t *buf, size_t num_samples);
 void microbit_hal_audio_speech_ready_callback(void);
 
+void microbit_hal_timer_run_every_ms(uint16_t id, void (*callback)(uint16_t), uint32_t interval_ms);
+void microbit_hal_timer_release(uint16_t id);
+
 #ifdef __cplusplus
 }
 #endif
