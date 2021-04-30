@@ -1,8 +1,8 @@
 {
     "target": {
         "name": "codal-microbit-v2",
-        "url": "https://github.com/lancaster-university/codal-microbit-v2",
-        "branch": "v0.2.25",
+        "url": "https://github.com/microbit-carlos/codal-microbit-v2",
+        "branch": "no-softdevice",
         "type": "git",
         "test_ignore": true
     } ,

@@ -196,8 +196,8 @@ def main():
     parse_map_file(args.mapfile[0], symbols)
 
     # Get the required symbol addresses.
-    sd_start = symbols["_binary_softdevice_bin_start"]
-    sd_end = symbols["__isr_vector"]
+    sd_start = 0 #symbols["_binary_softdevice_bin_start"]
+    sd_end = 0 # symbols["__isr_vector"]
     mp_start = symbols["__isr_vector"]
     data_len = symbols["__data_end__"] - symbols["__data_start__"]
     mp_end = symbols["__etext"] + data_len
