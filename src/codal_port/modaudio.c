@@ -141,13 +141,18 @@ void microbit_audio_play_source(mp_obj_t src, mp_obj_t pin_select, bool wait, ui
     }
     audio_init(sample_rate);
     microbit_pin_audio_select(pin_select, microbit_pin_mode_audio_play);
-
+mp_hal_stdout_tx_strn("play\n", 5);
     const char *sound_expr_data = NULL;
     if (mp_obj_is_type(src, &microbit_sound_type)) {
         const microbit_sound_obj_t *sound = (const microbit_sound_obj_t *)MP_OBJ_TO_PTR(src);
         sound_expr_data = sound->name;
     } else if (mp_obj_is_type(src, &microbit_soundeffect_type)) {
         sound_expr_data = microbit_soundeffect_get_sound_expr_data(src);
+mp_hal_stdout_tx_strn("SoundEffect\n", 12);
+mp_hal_stdout_tx_strn(sound_expr_data, 72);
+mp_hal_stdout_tx_strn("\n", 1);
+// audio.play(audio.SoundEffect())
+// a = audio.SoundEffect._from_string("310230500050018000250000000000012800000100240000000000000")
     } else if (mp_obj_is_type(src, &mp_type_tuple) || mp_obj_is_type(src, &mp_type_list)) {
         // A tuple/list passed in.  Need to check if it contains SoundEffect instances.
         size_t len;
