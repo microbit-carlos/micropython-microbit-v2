@@ -97,6 +97,7 @@ SRC_C += \
 	modpower.c \
 	modradio.c \
 	modspeech.c \
+	modsubsystem.c \
 	modthis.c \
 	mphalport.c \
 
