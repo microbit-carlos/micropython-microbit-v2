@@ -36,7 +36,17 @@ STATIC mp_obj_t py_subsystem_info(void) {
         mp_raise_OSError(error);
     } else {
         // Return the content as a Python bytes object
-        return mp_obj_new_bytes_from_vstr(&vstr);
+        // return mp_obj_new_bytes_from_vstr(&vstr);
+
+        // return a comma separated list of strings: "file,text".split(",")
+        VSTR_FIXED(sep, 2);
+        vstr_add_str(&sep, ",");
+        const mp_obj_t args[2] = {
+            mp_obj_new_str_from_vstr(&vstr),
+            mp_obj_new_str_from_vstr(&sep)
+        };
+        mp_obj_t list = mp_obj_str_split(2 , args);
+        return list;
     }
 }
 MP_DEFINE_CONST_FUN_OBJ_0(subsystem_info_obj, py_subsystem_info);
